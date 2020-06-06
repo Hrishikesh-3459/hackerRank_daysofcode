@@ -25,13 +25,11 @@ class Solution:
         #Write your code here
         if head == None:
             return head
-        seen = set()
         cur = head
-        while cur:
-            if (cur.data in seen):
-                cur = cur.next.next
+        while cur.next:
+            if (cur.data == cur.next.data):
+                cur.next = cur.next.next
             else:
-                seen.add(cur.data)
                 cur = cur.next
         return head
 
